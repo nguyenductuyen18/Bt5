@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${zings}" method="post" th:action="@{/update}" novalidate="novalidate" enctype="multipart/form-data">
+<div >Name</div>
+    <input type="hidden" th:field="*{id}">
+    <input th:field="*{name}" type="text" id="name">
+<div >Artist</div>
+    <input th:field="*{artist}" type="text" id="artist">
+    <div >file</div>
+    <input th:field="*{file}" type="file" id="file">
+    <br>
+    <input type="submit" value="update">
+    </tbody>
+</form>
+</body>
+</html>

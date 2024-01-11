@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/add}">add</a>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>artist</th>
+        <th>file</th>
+        <th>edit</th>
+        <th>remote</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStas : ${zings}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getArtist()}"></td>
+        <td > <audio controls >
+              <source th:src="@{'/image/' + ${row.getFile()}}" type="audio/ogg">
+        </audio>
+
+        </td>
+        <td ><a th:href="@{/{id}/edit(id=${row.getId()})}">update</a></td>
+        <td ><a th:href="@{/{id}/delete(id=${row.getId()})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
